@@ -196,6 +196,10 @@ async Dataset(datenpunkt,inhalt)
 
             
         });
+        this.ws.on('pong', function heartbeat() {
+	          this.isAlive = true; 
+          //	console.log('Pong from store: ' + this.store_id);
+       });
         this.ws.on("error", (data) => {
             this.log.error("WS error:" + data);
 
