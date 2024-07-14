@@ -196,10 +196,9 @@ async Dataset(datenpunkt,inhalt)
 
             
         });
-        this.ws.on("pong", function heartbeat() {
-		
+        this.ws.on("pong", () => {
         	  this.log.debug("JSH: In Pong-Fall");
-	          this.isAlive = true; 
+	          //this.isAlive = true; 
           //	console.log('Pong from store: ' + this.store_id);
        });
         this.ws.on("error", (data) => {
@@ -212,7 +211,7 @@ async Dataset(datenpunkt,inhalt)
             this.log.debug(data);
 
             this.setState("info.connection", false, true);
-            this.log.info("Websocket closed");
+            this.log.info("JSH: Websocket closed");
             this.connectWS();       });    
        
         
