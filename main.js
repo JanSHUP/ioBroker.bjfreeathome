@@ -196,7 +196,7 @@ async Dataset(datenpunkt,inhalt)
 
             
         });
-        this.ws.on("pong", () => {
+        this.ws.on("ping", () => {
         	  this.log.debug("JSH: In Pong-Fall");
 	          //this.isAlive = true; 
           //	console.log('Pong from store: ' + this.store_id);
