@@ -171,7 +171,7 @@ async Dataset(datenpunkt,inhalt)
     async connectWS() {
      
        
-        this.log.debug("Connect to WebSocket");
+        this.log.debug("Connect to WebSocket V1.5");
         try {
           
             this.ws = new WebSocket("ws://"
