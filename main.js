@@ -282,6 +282,8 @@ sendDevicestate(deviceid,devicestate) {
   }
     
   loadDevices() {
+	
+       this.log.info("JSH: loadDevices() gestartet");  
        axios({
                 method: "get",
                 url: 'http://'+this.config.serverip+'/fhapi/v1/api/rest/configuration',
@@ -296,6 +298,7 @@ sendDevicestate(deviceid,devicestate) {
                     password: this.config.password
                      },
                 }).then((response) => {
+	       this.log.info(JSON.stringify(response.data));
       
                     var fh_devices_data = response.data;
            
