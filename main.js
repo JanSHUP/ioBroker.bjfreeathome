@@ -302,26 +302,16 @@ sendDevicestate(deviceid,devicestate) {
 		    this.log.info("JSH: loadDevices(): Responses wurden ausgelesen");
                     
 	            for (const [key, obj] of Object.entries(fh_devices_data))
-		        this.log.info("JSH: loadDevices(): Responses werden in For-Schleife zerlegt");
+		        this.log.info("JSH: loadDevices(): Responses werden nach key und object in For-Schleife zerlegt");
                         {
                             sysAP_ident = JSON.stringify(key).replace(/["]/g, "");
-				try{
-                            		this.log.info(JSON.stringify(key));
-				}
-				catch(error)
-				{
-				this.log.error(error);	
-				}
+                            	//this.log.info(JSON.stringify(key));
+				this.log.info("JSH: loadDevices(): sysAp_ident wurde gefunden");
 				//00000000-0000-0000-0000-000000000000
                                 for (const [key_sub1, obj_sub1] of Object.entries(obj)) {
-                                try{
-                                 this.log.info(JSON.stringify(key_sub1));
-				}
-				catch(error)
-				{
-				this.log.error(error);	
-				}
-				//connectionState, sysapName, devices, device_copies, floorplan, users
+					this.log.info("JSH: loadDevices(): Responses werden nach key_sub1 und object_sub1 in For-Schleife zerlegt");
+                                 	//this.log.info(JSON.stringify(key_sub1));
+					//connectionState, sysapName, devices, device_copies, floorplan, users
                                      if (JSON.stringify(key_sub1).includes('devices'))                                     
                                         for (const [key_sub2, obj_sub2] of Object.entries(obj_sub1)) {
                                               //  this.log.info(JSON.stringify(key_sub2)); //devices
