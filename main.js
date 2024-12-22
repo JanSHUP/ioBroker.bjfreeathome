@@ -298,8 +298,12 @@ sendDevicestate(deviceid,devicestate) {
                 }).then((response) => {
       
                     var fh_devices_data = response.data;
-           
-                    this.log.info(JSON.stringify(fb_devices_data[1]));
+           	    try{
+			this.log.info(JSON.stringify(fb_devices_data[1]));    
+		    }
+	       	    catch(error){
+			    this.log.error(error);
+		    }
                     
                     for (const [key, obj] of Object.entries(fh_devices_data))
                         {
