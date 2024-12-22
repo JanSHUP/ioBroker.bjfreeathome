@@ -298,21 +298,18 @@ sendDevicestate(deviceid,devicestate) {
                 }).then((response) => {
       
                     var fh_devices_data = response.data;
-           	    try{
-			this.log.info(JSON.stringify(fb_devices_data));    
-		    }
-	       	    catch(error){
-			    this.log.error(error);
-		    }
+		    //this.log.info(JSON.stringify(fb_devices_data[1]));    
+		    this.log.info("JSH: loadDevices(): Responses wurden ausgelesen");
                     
-                    for (const [key, obj] of Object.entries(fh_devices_data))
+	            for (const [key, obj] of Object.entries(fh_devices_data))
+		        this.log.info("JSH: loadDevices(): Responses werden in For-Schleife zerlegt");
                         {
                             sysAP_ident = JSON.stringify(key).replace(/["]/g, "");
-                            //this.log.info(JSON.stringify(key));
+                            this.log.info(JSON.stringify(key));
                             //00000000-0000-0000-0000-000000000000
                                 for (const [key_sub1, obj_sub1] of Object.entries(obj)) {
                                 
-                                 //this.log.info(JSON.stringify(key_sub1));
+                                 this.log.info(JSON.stringify(key_sub1));
                                  //connectionState, sysapName, devices, device_copies, floorplan, users
                                      if (JSON.stringify(key_sub1).includes('devices'))                                     
                                         for (const [key_sub2, obj_sub2] of Object.entries(obj_sub1)) {
