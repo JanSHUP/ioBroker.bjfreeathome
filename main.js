@@ -310,7 +310,7 @@ sendDevicestate(deviceid,devicestate) {
 				}
 				catch(error)
 				{
-				this.log.error(error)	
+				this.log.error(error);	
 				}
 				//00000000-0000-0000-0000-000000000000
                                 for (const [key_sub1, obj_sub1] of Object.entries(obj)) {
@@ -319,7 +319,7 @@ sendDevicestate(deviceid,devicestate) {
 				}
 				catch(error)
 				{
-				this.log.error(error)	
+				this.log.error(error);	
 				}
 				//connectionState, sysapName, devices, device_copies, floorplan, users
                                      if (JSON.stringify(key_sub1).includes('devices'))                                     
