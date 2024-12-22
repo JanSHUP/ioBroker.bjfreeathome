@@ -305,12 +305,15 @@ sendDevicestate(deviceid,devicestate) {
 		        this.log.info("JSH: loadDevices(): Responses werden in For-Schleife zerlegt");
                         {
                             sysAP_ident = JSON.stringify(key).replace(/["]/g, "");
-                            this.log.info(JSON.stringify(key));
-                            //00000000-0000-0000-0000-000000000000
+				try{
+                            		this.log.info(JSON.stringify(key));
+				}
+				//00000000-0000-0000-0000-000000000000
                                 for (const [key_sub1, obj_sub1] of Object.entries(obj)) {
-                                
+                                try{
                                  this.log.info(JSON.stringify(key_sub1));
-                                 //connectionState, sysapName, devices, device_copies, floorplan, users
+				}
+				//connectionState, sysapName, devices, device_copies, floorplan, users
                                      if (JSON.stringify(key_sub1).includes('devices'))                                     
                                         for (const [key_sub2, obj_sub2] of Object.entries(obj_sub1)) {
                                               //  this.log.info(JSON.stringify(key_sub2)); //devices
