@@ -378,7 +378,7 @@ sendDevicestate(deviceid,devicestate) {
            
                         
                   this.subscribeStates('*');      
-                    })
+                    }, (error) => { this.log.info(error); })
             
                 }
     
