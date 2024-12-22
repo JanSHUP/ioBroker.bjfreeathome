@@ -299,7 +299,7 @@ sendDevicestate(deviceid,devicestate) {
       
                     var fh_devices_data = response.data;
            
-                    //this.log.info(JSON.stringify(fb_devices_data[1]));
+                    this.log.info(JSON.stringify(fb_devices_data[1]));
                     
                     for (const [key, obj] of Object.entries(fh_devices_data))
                         {
