@@ -193,14 +193,14 @@ async Dataset(datenpunkt,inhalt)
             this.log.info("WebSocket connected");
             this.setState("info.connection", true, true);
             this.loadDevices() 
-
+            this.pingInterval = setInterval(() => {
+                if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                    this.ws.send("ping"); // Falls der Server ein anderes Protokoll nutzt, passe "ping" an.
+                    this.log.debug("Ping gesendet");
+                     }
+                  }, 30000); // Alle 30 Sekunden	
             
         });
-        this.ws.on("ping", () => {
-        	  this.log.debug("JSH: In Pong-Fall");
-	          //this.isAlive = true; 
-          //	console.log('Pong from store: ' + this.store_id);
-       });
         this.ws.on("error", (data) => {
             this.log.error("WS error:" + data);
 
@@ -209,7 +209,7 @@ async Dataset(datenpunkt,inhalt)
         });
         this.ws.on("close", (data) => {
             this.log.debug(data);
-
+            clearInterval(this.pingInterval);
             this.setState("info.connection", false, true);
             this.log.info("JSH: Websocket closed");
             this.connectWS();       });    
